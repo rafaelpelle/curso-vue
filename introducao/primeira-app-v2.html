@@ -1,0 +1,20 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+	<h1>{{ text }}</h1>
+	<input type="text" v-on:input="changeText" placeholder="type here...">
+</div>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			text: 'Usando Vue.js'
+		},
+		methods: {
+			changeText(event) {
+				this.text = event.target.value ? event.target.value : 'type some text'
+			}
+		}
+	})
+</script>
