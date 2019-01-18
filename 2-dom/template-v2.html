@@ -1,9 +1,10 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-	<p>{{ title }}</p>
+	<h1>{{ title }}</h1>
 	<p>{{ greetings() }}</p>
-	<p>{{ getMyName() }}</p>
+	<p>My name is {{ getMyName() }}</p>
+	<p>I'm {{ getMyAge() }} years old</p>
 </div>
 
 <script>
@@ -11,14 +12,30 @@
 		el: '#app',
 		data: {
 			title: 'Using Vue.js!',
-			myName: 'Rafael Pelle',
+			name: 'Rafael Pelle',
+			birthDay: {
+				day: '23',
+				month: '11',
+				year: '1992',
+			},
 		},
 		methods: {
-			greetings: function() {
+			greetings() {
 				return 'Greetings stranger!'
 			},
-			getMyName: function() {
-				return this.myName
+			getMyName() {
+				return this.name
+			},
+			getMyAge() {
+				const { day, month, year } = this.birthDay
+				const birthDay = new Date(year, month, day)
+				const today = new Date()
+				let age = today.getFullYear() - birthDay.getFullYear()
+				const m = today.getMonth() - birthDay.getMonth()
+				if (m < 0 || (m === 0 && today.getDate() < birthDay.getDate())) {
+					age--
+				}
+				return age
 			}
 		}
 	})
