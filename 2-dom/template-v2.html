@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+	<p>{{ title }}</p>
+	<p>{{ greetings() }}</p>
+	<p>{{ getMyName() }}</p>
+</div>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			title: 'Using Vue.js!',
+			myName: 'Rafael Pelle',
+		},
+		methods: {
+			greetings: function() {
+				return 'Greetings stranger!'
+			},
+			getMyName: function() {
+				return this.myName
+			}
+		}
+	})
+</script>
