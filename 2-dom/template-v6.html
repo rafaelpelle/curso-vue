@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+	<h1>{{ title }}</h1>
+	<a v-bind:href="githubLink" target="_blank">GitHub do Rafael Pelle</a>
+	<div v-html="linkHTML"></div>
+</div>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			title: 'Using Vue.js!',
+			githubLink: 'https://github.com/rafaelpelle/',
+			linkHTML: '<a href="https://github.com/rafaelpelle/" target="_blank"> GitHub do Rafael Pelle</a>',
+		},
+		methods: {
+			greetings() {
+				return 'Greetings stranger!'
+			},
+		}
+	})
+</script>
