@@ -1,0 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+	<h1 v-once>{{ title }}</h1>
+	<h1>{{ greetings() }}</h1>
+</div>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			title: 'Using Vue.js!',
+		},
+		methods: {
+			greetings() {
+				this.title = 'Usando Vue.js!'
+				return this.title
+			},
+		}
+	})
+</script>
