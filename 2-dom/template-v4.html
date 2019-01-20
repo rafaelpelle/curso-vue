@@ -1,8 +1,9 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
+	<h1>{{ title }}</h1>
 	<p>{{ greetings() }}</p>
-	<p>{{ title }}</p>
+	<a v-bind:href="githubLink" target="_blank">GitHub do Rafael Pelle</a>
 </div>
 
 <script>
@@ -10,11 +11,12 @@
 		el: '#app',
 		data: {
 			title: 'Using Vue.js!',
+			githubLink: 'https://github.com/rafaelpelle/'
 		},
 		methods: {
-			greetings: function() {
+			greetings() {
 				return 'Greetings stranger!'
-			}
+			},
 		}
 	})
 </script>
