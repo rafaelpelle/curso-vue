@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<div id="app" v-on:mousemove="updateMouseLocation">
+	<h1 v-on:mousemove.stop>Mouse location: {{ x }}, {{ y }}</h1> <!-- stopPropagation of updateMouseLocation() -->
+	<a v-on:click.prevent="" href="https://google.com">Google</a> <!-- preventDefault  -->
+</div>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			x: 0,
+			y: 0,
+		},
+		methods: {
+			updateMouseLocation(event) {
+				this.x = event.clientX
+				this.y = event.clientY
+			},
+		},
+	})
+</script>
