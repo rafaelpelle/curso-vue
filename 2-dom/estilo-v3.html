@@ -1,0 +1,60 @@
+<script src="https://unpkg.com/vue"></script>
+
+<style>
+    .boxes-container {
+        display: flex;
+        justify-content: space-around;
+    }
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: grey;
+    }
+    .c1 {
+        background-color: red;
+    }
+    .c2 {
+        background-color: blue;
+    }
+    .c3 {
+        background-color: green;
+    }
+    .rotate {
+        transform: rotate(10deg);
+    }
+</style>
+
+<div id="app">
+    <div class="boxes-container">
+        <div class="demo" :class="style1" @click="c1Active = !c1Active"></div>
+        <div class="demo" :class="{c2: c2Active}" @click="c2Active = !c2Active"></div>
+        <div class="demo" :class="lastBoxCSSClass" @click="c3Active = !c3Active"></div>
+        <div class="demo" :class="[lastBoxCSSClass, {'rotate': rotateActive}]" @click="c3Active = !c3Active"></div>
+    </div>
+    <hr>
+    <input type="text" v-model='lastBoxCSSClass'>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            c1Active: false,
+            c2Active: false,
+            c3Active: false,
+            rotateActive: true,
+            lastBoxCSSClass: 'c1',
+        },
+        computed: {
+            style1() {
+                return {
+                    c1: this.c1Active,
+                    c2: this.c2Active,
+                }
+            },
+        },
+        methods: {
+
+        },
+    })
+</script>
