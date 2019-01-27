@@ -23,12 +23,15 @@
 			counter(newValue, oldValue) {
 				console.log(`new value: ${newValue}`)
 				console.log(`old value: ${oldValue}`)
+				setTimeout(() => { // Reset the counter after 3sec EVERYTIME the counter value changes
+					this.counter = 0
+				}, 3000)
 			}
 		},
 		methods: { // The methods property allows me to use async functions
 			add() {
 				this.counter++
-				setTimeout(() => {
+				setTimeout(() => { // Reset the counter after 3sec ONLY when the add function is called
 					this.counter = 0
 				}, 3000)
 			},
