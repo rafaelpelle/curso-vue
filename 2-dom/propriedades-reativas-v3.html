@@ -1,0 +1,43 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+	<button v-on:click="add">Add Counter</button>
+	<button v-on:click="addOther">Add Other Counter</button>
+	<p>Counter: {{ counter }} | {{ otherCounter }}</p>
+	<p>Result: {{ result }}</p>
+</div>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			counter: 0,
+			otherCounter: 0,
+		},
+		computed: { // The computed property don't allow me to use async functions
+			result() {
+				return this.counter > 10 ? 'Greater than 10' : 'Less or equal than 10'
+			}
+		},
+		watch: { // The watch property allows me to use async functions
+			counter(newValue, oldValue) {
+				console.log(`new value: ${newValue}`)
+				console.log(`old value: ${oldValue}`)
+			}
+		},
+		methods: { // The methods property allows me to use async functions
+			add() {
+				this.counter++
+				setTimeout(() => {
+					this.counter = 0
+				}, 3000)
+			},
+			addOther() {
+				this.otherCounter++
+			},
+			// result() {
+			// 	return this.counter > 10 ? 'Greater than 10' : 'Less or equal than 10'
+			// }
+		},
+	})
+</script>
