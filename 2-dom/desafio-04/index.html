@@ -48,7 +48,11 @@
 	<h2>#06</h2>
 	<div>
 		<button @click="iniciarProgresso">Iniciar</button>
-		<div></div>
+		<button @click="reiniciarProgresso">Reiniciar</button>
+		<button @click="finalizarProgresso">Finalizar</button>
+		<div class="progressBar" :style="progressStyle">
+			<h1 class="progressText">{{ (progress/10).toFixed(0) + '%' }}</h1>
+		</div>
 	</div>
 </div>
 <script src="app.js"></script>

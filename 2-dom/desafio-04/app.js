@@ -2,11 +2,13 @@ new Vue({
 	el: '#desafio',
 	data: {
 		efeitoActive: false,
-		intervalId: '',
+		effectIntervalId: '',
 		userClass: 'Digite uma classe',
 		userClass2: 'Digite uma classe',
 		userStyle: 'Digite um estilo',
 		boldActive: 'false',
+		progressIntervalId: '',
+		progress: 0,
 	},
 	computed: {
 		efeitoStyle() {
@@ -27,18 +29,33 @@ new Vue({
 					return { fontSize: '1em', fontWeight: 300 }
 			}
 		},
+		progressStyle() {
+			return { width: (this.progress/10) + 'vw' }
+		},
 	},
 	methods: {
 		iniciarEfeito() {
-			this.intervalId = setInterval(() => {
+			this.effectIntervalId = setInterval(() => {
 				this.efeitoActive = !this.efeitoActive
 			}, 100)
 		},
 		finalizarEfeito() {
-			clearInterval(this.intervalId)
+			clearInterval(this.effectIntervalId)
 		},
 		iniciarProgresso() {
-
+			this.progressIntervalId = setInterval(() => {
+				if (this.progress < 1000) {
+					this.progress++
+				} else {
+					this.finalizarProgresso()
+				}
+			}, 10)
+		},
+		finalizarProgresso() {
+			clearInterval(this.progressIntervalId)
+		},
+		reiniciarProgresso() {
+			this.progress = 0
 		}
 	}
 })

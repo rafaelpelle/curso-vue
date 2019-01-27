@@ -21,3 +21,17 @@
 .boldFont {
 	font-weight: 900;
 }
+
+.progressBar {
+	height: 70px;
+	background-color: green;
+	color: white;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.progressText {
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: 15px;
+}
