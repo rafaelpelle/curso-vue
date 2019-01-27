@@ -13,3 +13,11 @@
 	background-color: gray;
 	width: 50px !important;
 }
+
+.bigFont {
+	font-size: 2em;
+}
+
+.boldFont {
+	font-weight: 900;
+}
