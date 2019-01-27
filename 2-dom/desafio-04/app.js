@@ -3,6 +3,9 @@ new Vue({
 	data: {
 		efeitoActive: false,
 		intervalId: '',
+		userClass: 'Digite uma classe',
+		userClass2: 'Digite uma classe',
+		boldActive: 'false',
 	},
 	computed: {
 		efeitoStyle() {

@@ -22,17 +22,17 @@
 		(crie classe CSS de exemplo). -->
 	<h2>#03</h2>
 	<div>
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="userClass">
+		<div :class="userClass">Estilo do usuário</div>
 	</div>
 
 	<!-- 4) Aplique na div abaixo a classe informada pelo usuário e
     outra classe usando o valor true/false (crie classes CSS de exemplo). -->
 	<h2>#04</h2>
 	<div>
-		<input type="text">
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="userClass2">
+		<input type="text" v-model="boldActive">
+		<div :class="[userClass2, {boldFont: boldActive === 'true'}]">Estilo do usuário</div>
 	</div>
 
 	<!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
