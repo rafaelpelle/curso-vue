@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- Original sintax -->
+    <button v-on:click="addOne">Add1</button>
+    <input type="text" v-bind:value="counter1">
+    <br>
+    <!-- Reduced sintax -->
+    <button @click="counter2 += 2">Add2</button> <!-- v-on:click equals to @click -->
+    <input type="text" :value="counter2"> <!-- v-bind:value equals to :value -->
+</div>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+            counter1: 0,
+            counter2: 0,
+		},
+		methods: {
+			addOne() {
+                this.counter1++
+            }
+		}
+	})
+</script>
