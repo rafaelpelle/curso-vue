@@ -39,8 +39,8 @@
     Associe os estilos a div abaixo  -->
 	<h2>#05</h2>
 	<div>
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="userStyle">
+		<div :style="selectedStyle">Estilo do usuario</div>
 	</div>
 
 	<!-- 6) Crie uma barra de progresso simples com setInterval 

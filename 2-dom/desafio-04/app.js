@@ -5,6 +5,7 @@ new Vue({
 		intervalId: '',
 		userClass: 'Digite uma classe',
 		userClass2: 'Digite uma classe',
+		userStyle: 'Digite um estilo',
 		boldActive: 'false',
 	},
 	computed: {
@@ -12,6 +13,18 @@ new Vue({
 			return {
 				destaque: this.efeitoActive,
 				encolher: !this.efeitoActive,
+			}
+		},
+		selectedStyle() {
+			switch(this.userStyle) {
+				case 'big':
+					return { fontSize: '3em' }
+				case 'bold':
+					return { fontWeight: 900 }
+				case 'big bold':
+					return { fontSize: '3em', fontWeight: 900 }
+				default:
+					return { fontSize: '1em', fontWeight: 300 }
 			}
 		},
 	},
