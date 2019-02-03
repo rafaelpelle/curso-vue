@@ -6,18 +6,18 @@
     para ver a diferença -->
   <h2>#01</h2>
   <div>
-    <button>Alternar</button>
-    <p>Você quer me ver ...</p>
-    <p>...ou eu</p>
-    <p>Você quer me ver ...</p>
-    <p>...ou eu</p>
+    <button @click="visible = !visible">Alternar</button>
+    <p v-if="visible">Você quer me ver ...</p>
+    <p v-else>...ou eu</p>
+    <p v-show="visible">Você quer me ver ...</p>
+    <p v-show="!visible">...ou eu</p>
   </div>
 
   <!-- 2) Exiba em uma <ul> um array de elementos da sua escolha.
     Imprima também o índice de cada elemento. -->
   <h2>#02</h2>
   <ul>
-    <li></li>
+      <li v-for="(color, i) in colors">{{ i }} - {{ color }}</li>
   </ul>
   
   <!-- 3) Imprimir todos os pares de valor-chave do objeto a seguir:
@@ -29,7 +29,7 @@
     Imprima também o índice de cada item. -->
   <h2>#03</h2>
   <ul>
-    <li></li>
+      <li v-for="(value, key) in livro">{{ key }} - {{ value }}</li>
   </ul>
   
   <!-- 4) Imprima o seguinte objeto (somente os valores) e
@@ -42,8 +42,19 @@
     (dica: use v-for e v-if na resolução) -->
   <h2>#04</h2>
   <ul>
-    <li>
-    
+    <li v-for="value in aluno">
+      <template v-if="!Array.isArray(value)">
+        {{ value }}
+      </template>
+      <template v-else>
+        Grades:
+        <ul>
+          <li v-for="grade in value">
+            {{ grade }}
+          </li>
+        </ul>
+      </template>
     </li>
   </ul>
 </div>
+<script src="app.js"></script>
